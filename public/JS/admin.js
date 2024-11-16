@@ -46,7 +46,7 @@ editar = (id) =>{
   })
   console.log(prodEditar);
   const formEditar = document.forms['formEditar'];
-  formEditar.Titulo.value = prodEditar.titulo;
+  formEditar.Nombre.value = prodEditar.nombre;
   formEditar.Descripcion.value = prodEditar.descripcion;
   formEditar.Precio.value = prodEditar.precio;
   formEditar.idEditar.value = prodEditar.id;
@@ -57,12 +57,12 @@ editar = (id) =>{
 
     // Creo objeto con nuevos datos
     const nuevosDatos ={
-      titulo:formEditar.Titulo.value,
+      nombre:formEditar.Nombre.value,
       descripcion:formEditar.Descripcion.value,
       precio:formEditar.Precio.value,
       id:formEditar.idEditar.value,
     }
-    if (!nuevosDatos.titulo || !nuevosDatos.descripcion || !nuevosDatos.precio) {
+    if (!nuevosDatos.nombre || !nuevosDatos.descripcion || !nuevosDatos.precio) {
       document.querySelector('#mensajeEditar').innerHTML = '*Complete todos los datos'
       return
     }
@@ -107,7 +107,7 @@ const obtenerDatos = async() =>{
             style="width: 100%; max-width: 300px; margin:30px">
             <img src="${prod.imagen}" class="card-img-top" alt="...">
             <div class="card-body ">
-                <h4>${prod.titulo}</h4>
+                <h4>${prod.nombre}</h4>
                 <p class="card-text ">${prod.descripcion}</p>
             </div>
 <div class="d-flex justify-content-between align-items-center w-100 mb-2 px-2">
@@ -140,16 +140,17 @@ console.log(formulario)
 formulario.addEventListener('submit', (event) => {
   event.preventDefault();
 
-  let titulo = formulario.Titulo.value
+  let nombre = formulario.Nombre.value
   let descripcion = formulario.Descripcion.value
   let precio = formulario.Precio.value
   let imagen = "https://picsum.photos/200/300?random=1"
 
+
   // Objetos con los datos obtenidos en el formulario
-  let newDatos = { titulo: titulo, descripcion: descripcion, precio: precio, imagen: imagen }
+  let newDatos = { nombre: nombre, descripcion: descripcion, precio: precio, imagen: imagen }
 
 
-  if (!newDatos.titulo || !newDatos.descripcion || !newDatos.precio) {
+  if (!newDatos.nombre || !newDatos.descripcion || !newDatos.precio) {
     document.querySelector('#mensaje').innerHTML = '*Complete todos los datos'
     return
   }
