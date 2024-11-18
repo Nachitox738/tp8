@@ -1,4 +1,4 @@
-fetch ('./JSON/datos.json')
+fetch ('/productos')
 .then (respuesta=>respuesta.json())
 //.then(datos=>console.log(datos))
 .then(datos=>mostrarProductos(datos))
